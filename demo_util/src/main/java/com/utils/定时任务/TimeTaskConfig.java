@@ -1,4 +1,4 @@
-package 定时任务;
+package com.utils.定时任务;
 
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;

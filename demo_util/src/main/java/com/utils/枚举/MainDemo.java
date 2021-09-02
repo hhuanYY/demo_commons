@@ -1,4 +1,4 @@
-package 枚举;
+package com.utils.枚举;
 
 /**
  * @author: yuanyinhuan
