@@ -16,10 +16,10 @@ import java.util.Date;
 @Component
 public class TimeTaskConfig {
 
-    @PostConstruct // 项目启动时自动调用一次
-    @Scheduled(cron = "0 15 15 1 * ?") // 每个月1号
+//    @PostConstruct // 项目启动时自动调用一次
+    @Scheduled(cron = "30-45 32 * 1 * ?")
     public static void timeTaskTest() {
-        System.out.println("每个月1号15点10分执行" +"-------"+ new Date());
+        System.out.println("每个月1号的每分钟执行一次" +"-------"+ new Date());
     }
 
 }

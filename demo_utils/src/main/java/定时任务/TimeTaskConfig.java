@@ -46,6 +46,13 @@ public class TimeTaskConfig {
         0 30 8 ? * 1#3  每个月的第三个星期，星期天执行，#号只能出现在星期的位置
         ————————————————
         原文链接：https://blog.csdn.net/qq_41144667/article/details/103795004
+
+     测试用例:
+        cron = "0 0 * 2 * ?"    每一个月二号的每个整点小时执行一次
+        cron = "8 9 10 2 * ?"   每一个月二号的10点9分8秒执行一次
+
+        cron = "0 0 9-12 2 * ?" 每一个月二号的9点至12点执行一次
+        cron = "0 0 * 2-5 * ?"  每个月二号至五号的每个整点执行一次
      */
     @PostConstruct
     @Scheduled(fixedDelay = 3000)
