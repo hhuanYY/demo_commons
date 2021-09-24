@@ -13,13 +13,16 @@ public class MainDemo {
 //        String stringFormatDate = DateTimeUtils.getStringFormatDate(lastMonthLastDayCurrent);
 //        System.err.println(stringFormatDate);
 //
-        Date nLastWeek = DateTimeUtils.getNLastWeek(new Date());
-        String string = DateTimeUtils.getString(nLastWeek);
-        System.err.println(":----"+ string);
+//        Date nLastWeek = DateTimeUtils.getNLastWeek(new Date());
+//        String string = DateTimeUtils.getString(nLastWeek);
+//        System.err.println(":----"+ string);
+//
+//        Date thisWeekMonday2 = DateTimeUtils.getThisWeekMonday2("2021-08-29");
+//        String string1 = DateTimeUtils.getString(thisWeekMonday2);
+//        System.err.println(string1);
 
-        Date thisWeekMonday2 = DateTimeUtils.getThisWeekMonday2("2021-08-29");
-        String string1 = DateTimeUtils.getString(thisWeekMonday2);
-        System.err.println(string1);
+        Integer nLastMonth = DateTimeUtils.getNLastMonth(202108);
+        System.err.println(nLastMonth);
 
     }
 }

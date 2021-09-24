@@ -55,8 +55,32 @@ public class DateTimeUtils {
         return calendar.getTime();
     }
 
+    /**
+     * 获取指定月份的18个月前的 月份
+     * @param month
+     * @return
+     */
+    public static Integer getNLastMonth(Integer month) {
+        String monthStr = String.valueOf(month);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMM");
+        String string = "";
+        try {
+            Date dataMonth = simpleDateFormat.parse(monthStr);
+            Calendar instance = Calendar.getInstance();
+            instance.clear();
+            instance.setTime(dataMonth);
+            instance.add(Calendar.MONTH, -17);
+            string = getString(instance.getTime());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return Integer.valueOf(string);
+    }
+
+
     public static String getString(Date time) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
         return sdf.format( time );
     }
 
