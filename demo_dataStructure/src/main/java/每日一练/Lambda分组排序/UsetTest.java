@@ -1,7 +1,9 @@
-package 每日一练.Lambda分组;
+package 每日一练.Lambda分组排序;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,12 +28,31 @@ public class UsetTest {
         appleList.add(apple2);
         appleList.add(apple3);
 
-        appleList.stream().collect(Collectors.groupingBy(Apple::getId));
 
+        /**
+         * 抽出Apple列表的的Id字段
+         */
         List<Integer> collect = appleList.stream().map(Apple::getId).collect(Collectors.toList());
         System.err.println(collect);
 
+        /** 排序:
+         * 1. .collect(Collectors.toList()); 表示返回值为当前的列表
+         * 2. 添加了Comparator.reverseOrder()则表示降序
+         */
+        // 按照getMoney字段升序
+        List<Apple> collect1 = appleList.stream().sorted(Comparator.comparing(Apple::getMoney)).collect(Collectors.toList());
+        // 按照getMoney字段降序 ( 添加了Comparator.reverseOrder()则表示降序 )
+        List<Apple> collect2 = appleList.stream().sorted(Comparator.comparing(Apple::getMoney,Comparator.reverseOrder())).collect(Collectors.toList());
+        System.err.println(collect1);
 
+        //  使用默认的Collections 实现排序
+        Collections.sort(appleList,Comparator.comparing(Apple::getMoney,Comparator.reverseOrder()));
+        System.err.println(appleList);
+
+
+        /** 根据某个字段分组:
+         *
+         */
         // 单个字段分组
 //        Map<String, List<Apple>> collect = appleList.stream().collect(Collectors.groupingBy(Apple::getName));
 //        System.err.println(collect);

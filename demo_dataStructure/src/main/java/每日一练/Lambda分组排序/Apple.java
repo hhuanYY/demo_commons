@@ -1,4 +1,4 @@
-package 每日一练.Lambda分组;
+package 每日一练.Lambda分组排序;
 
 import java.math.BigDecimal;
 
