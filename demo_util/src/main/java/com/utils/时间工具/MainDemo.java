@@ -21,8 +21,22 @@ public class MainDemo {
 //        String string1 = DateTimeUtils.getString(thisWeekMonday2);
 //        System.err.println(string1);
 
-        Integer nLastMonth = DateTimeUtils.getNLastMonth(202108);
-        System.err.println(nLastMonth);
+//        Integer nLastMonth = DateTimeUtils.getNLastMonth(202108);
+//        System.err.println(nLastMonth);
+//
+
+//        String stringFormatDate = DateTimeUtils.getInteger(DateTimeUtils.getLastDay(new Date()));
+//        System.err.println(stringFormatDate);
+
+
+        String str = "2021-11-05";
+        Date stringToDate = DateTimeUtils.getStringToDate(str);
+
+        Date lastDay = DateTimeUtils.getLastDay(stringToDate);
+
+        String integer = DateTimeUtils.getInteger(lastDay);
+
+        System.err.println(integer);
 
     }
 }

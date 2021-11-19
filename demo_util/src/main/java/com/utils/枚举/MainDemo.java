@@ -20,5 +20,8 @@ public class MainDemo {
          */
         int ordinal = EnumDemo.ONE.ordinal();
 
+        String code = EnumDemo.GET.getCode();
+        System.err.println(code);
+
     }
 }

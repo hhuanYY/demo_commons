@@ -1,4 +1,4 @@
-package other.LinkedListTest;
+package com.utils.集合相关;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +17,14 @@ public class 迭代器去重 {
         list.add(1);
         list.add(3);
         list.add(4);
+
+
+        /**
+         * List subList(int startIndex, int endIndex)
+         * 截取原即可,生成一个新集合(含首不含尾)
+         */
+        List<Integer> integers = list.subList(0, 2);
+        System.err.println(integers);
 
 
 //        // list 转存为 set 实现去重

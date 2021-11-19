@@ -1,5 +1,8 @@
 package com.utils.定时任务;
 
+import com.utils.时间工具.DateTimeUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -54,10 +57,28 @@ public class TimeTaskConfig {
         cron = "0 0 9-12 2 * ?" 每一个月二号的9点至12点执行一次
         cron = "0 0 * 2-5 * ?"  每个月二号至五号的每个整点执行一次
      */
-    @PostConstruct
-    @Scheduled(fixedDelay = 3000)
-    public static void timeTaskTest() {
-        System.out.println("fixedDelay每隔6秒" +"-------"+ new Date());
+
+
+//    @PostConstruct
+//    @Scheduled(fixedDelay = 3000)
+//    public static void timeTaskTest() {
+//        Logger logger = LogManager.getLogger(TimeTaskConfig.class);
+//        logger.info("INFO级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
+//        logger.debug("DEBUG级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
+//        logger.error("ERROR级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
+//        logger.trace("TRACE级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
+//        logger.warn("WARN级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
+//
+//        System.out.println("fixedDelay每隔6秒" +"-------"+ new Date());
+//    }
+
+
+    @Scheduled(cron = "0 0/2 * * * ?")
+    public void refreshMemberMobileTrend() throws Exception {
+        System.err.println(DateTimeUtils.getStringFormatDate(new Date()));
     }
+
+
+
 
 }
