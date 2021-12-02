@@ -27,8 +27,9 @@ public class LambdaDemo {
 
         // 遍历集合
         List<Integer> list = Arrays.asList(1, 2, 3, 4);
-        for (Integer i : list)
+        for (Integer i : list) {
             System.err.print(i);
+        }
 
         // Lambda表达式比那里集合
         list.forEach(zz -> System.err.print(zz));
