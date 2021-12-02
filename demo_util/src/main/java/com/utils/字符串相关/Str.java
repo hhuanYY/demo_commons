@@ -28,12 +28,6 @@ public class Str {
 //        String s = list.get(list.size()-1);
 //        System.err.println(s);
 
-//        Logger logger = LogManager.getLogger(Str.class);
-////        logger.info("INFO级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
-////        logger.debug("DEBUG级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
-////        logger.error("ERROR级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
-////        logger.trace("TRACE级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
-////        logger.warn("WARN级别日志{}" + DateTimeUtils.getStringFormatDate(new Date()));
 
 
 //        String str = "[http://10.0.31.7:9000/observatory/Dossen202110GainReport01.png, http://10.0.31.7:9000/observatory/Dossen202110GainReport02.png, http://10.0.31.7:9000/observatory/Dossen202110GainReport03.png, http://10.0.31.7:9000/observatory/Dossen202110GainReport04.png, \n" +
