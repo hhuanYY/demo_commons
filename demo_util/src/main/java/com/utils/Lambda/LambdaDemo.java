@@ -13,8 +13,6 @@ import java.util.logging.Logger;
  */
 public class LambdaDemo {
 
-
-
     public static void main(String[] args) {
         new Thread(new Runnable() {
             @Override

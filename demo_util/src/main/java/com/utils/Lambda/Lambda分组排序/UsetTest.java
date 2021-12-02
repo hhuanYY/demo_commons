@@ -1,4 +1,4 @@
-package com.utils.集合相关.Lambda分组排序;
+package com.utils.Lambda.Lambda分组排序;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -69,6 +69,22 @@ public class UsetTest {
 //
 //        Set<Integer> collect2 = appleList.stream().map(Apple::getId).collect(Collectors.toSet());
 //        System.err.println(collect2);
+
+
+//        // list为集合
+//        List<User> list = new ArrayList<>();
+//
+//// 根据某字段分组对象，并封装到一个Map集合中
+//        list.stream().collect(Collectors.groupingBy(User::getUsername));
+//
+//// 筛选符合添加的对象，并封装到一个List集合中
+//        list.stream().filter(item -> item.getIndexAdr().intValue() > 0).collect(Collectors.toList());
+//
+//// 取出User对象中所有的UserId,并封装到一个List集合中
+//        list.strean().map(User::getUserId).collect( Collectors.toList() );
+
+
+
 
 
     }
