@@ -2,6 +2,7 @@ package com.utils.时间工具;
 
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author: yuanyinhuan
@@ -9,6 +10,19 @@ import java.util.Date;
  */
 public class MainDemo {
     public static void main(String[] args) throws ParseException {
+
+        String monthEnd = DateTimeUtils.isMonthEnd();
+        System.err.println(monthEnd);
+
+        String weekEnd = DateTimeUtils.isWeekEnd();
+        System.err.println(weekEnd);
+
+        List<String> betweenTwoTime = DateTimeUtils.getBetweenTwoTime("202101", "202202");
+
+        String integer = DateTimeUtils.getInteger(DateTimeUtils.getSpecifyStartTime(-1));
+        System.err.println(integer);
+
+
 //        Date lastMonthLastDayCurrent = DateTimeUtils.getLastMonthLastDayCurrent(new Date());
 //        String stringFormatDate = DateTimeUtils.getStringFormatDate(lastMonthLastDayCurrent);
 //        System.err.println(stringFormatDate);
@@ -29,14 +43,17 @@ public class MainDemo {
 //        System.err.println(stringFormatDate);
 
 
-        String str = "2021-11-05";
-        Date stringToDate = DateTimeUtils.getStringToDate(str);
+//        String str = "2021-11-05";
+//        Date stringToDate = DateTimeUtils.getStringToDate(str);
+//
+//        Date lastDay = DateTimeUtils.getLastDay(stringToDate);
+//
+//        String integer = DateTimeUtils.getInteger(lastDay);
+//
+//        System.err.println(integer);
 
-        Date lastDay = DateTimeUtils.getLastDay(stringToDate);
-
-        String integer = DateTimeUtils.getInteger(lastDay);
-
-        System.err.println(integer);
+//        String lastMonthOneDay = DateTimeUtils.getLastMonthOneDay();
+//        System.err.println(lastMonthOneDay);
 
     }
 }

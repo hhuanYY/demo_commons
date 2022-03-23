@@ -2,9 +2,7 @@ package com.utils.时间工具;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * @author: yuanyinhuan
@@ -51,6 +49,44 @@ public class DateTimeUtils {
         return calendar.getTime();
     }
 
+    /**
+     * 获取当月最后一天
+     * @return
+     */
+    public static String isMonthEnd() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar ca = Calendar.getInstance();
+        ca.set(Calendar.DAY_OF_MONTH, ca.getActualMaximum(Calendar.DAY_OF_MONTH));
+        return format.format(ca.getTime());
+    }
+
+    /**
+     * 获取本周周日
+     * @return
+     */
+    public static String isWeekEnd(){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar ca = Calendar.getInstance();
+        ca.set(Calendar.DAY_OF_WEEK, ca.getActualMaximum(Calendar.DAY_OF_WEEK));
+        ca.add(Calendar.DATE,+1);
+        return format.format(ca.getTime());
+    }
+
+
+    /**
+     * 获取上月一号的数据
+     * @return
+     */
+    public static String getLastMonthOneDay() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.MONTH, -1);
+        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMinimum(Calendar.DAY_OF_MONTH));
+        return sdf.format(cal.getTime());
+    }
+
+
     public static Date getServerDate() {
         Date now = new Date();
         Calendar calendar = Calendar.getInstance();
@@ -77,6 +113,24 @@ public class DateTimeUtils {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         return sdf.format( time );
     }
+
+
+    /**
+     * 获取指定天数的日期 例如:interval参数是-1, 则获取的是昨天的日期
+     * @param interval
+     * @return
+     */
+    public static Date getSpecifyStartTime(Integer interval) {
+        Calendar todayStart = Calendar.getInstance();
+        todayStart.add(Calendar.DATE, interval);
+        todayStart.set(Calendar.HOUR_OF_DAY, 0);
+        todayStart.set(Calendar.MINUTE, 0);
+        todayStart.set(Calendar.SECOND, 0);
+        todayStart.set(Calendar.MILLISECOND, 0);
+        return todayStart.getTime();
+    }
+
+
 
     /**
      * 获取n周之前的时间
@@ -155,5 +209,69 @@ public class DateTimeUtils {
 
         return cld.getTime();
     }
+
+
+    /**
+     * 获取两个日期(yyyyMM)中间的月份日期集合,包含开始日期月份和结束日期月份
+     */
+    public static List<String> getMonthListBetween(String startDate, String endDate){
+        List<String> months=new ArrayList<>();
+        Calendar startTime=Calendar.getInstance();
+        Calendar endTime=Calendar.getInstance();
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMM");
+        try {
+            //将开始日期设置给calendar
+            startTime.setTime(simpleDateFormat.parse(startDate));
+            System.out.println("开始日期="+simpleDateFormat.format(startTime.getTime()));
+
+            //月份减1,包含开始日期月份
+            startTime.add(Calendar.MONTH,-1);
+
+            //将结束日期设置给calendar
+            endTime.setTime(simpleDateFormat.parse(endDate));
+
+            System.out.println("结束日期="+simpleDateFormat.format(endTime.getTime()));
+            while (startTime.before(endTime)){
+                startTime.add(Calendar.MONTH,1);
+                months.add(simpleDateFormat.format(startTime.getTime()));
+            }
+            System.out.println("months="+months);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return months;
+    }
+
+
+
+    public static List<String> getBetweenTwoTime(String startTime,String endTime) {
+        List<String> list = new ArrayList<>();
+        Calendar start = Calendar.getInstance();
+        Calendar end = Calendar.getInstance();
+
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMM");
+            start.setTime(simpleDateFormat.parse(startTime));
+            start.add(Calendar.MONTH,-1);
+            System.err.println("开始时间:"+start.getTime());
+
+            end.setTime(simpleDateFormat.parse(endTime));
+            System.err.println("结束时间:"+end.getTime());
+
+            while (start.before(end)) {
+                start.add(Calendar.MONTH, +1);
+                Date time = start.getTime();
+                list.add(simpleDateFormat.format(start.getTime()));
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+
 
 }

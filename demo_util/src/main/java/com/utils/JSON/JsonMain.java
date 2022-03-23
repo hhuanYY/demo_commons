@@ -3,9 +3,11 @@ package com.utils.JSON;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: yuanyinhuan
@@ -14,6 +16,12 @@ import java.util.List;
 public class JsonMain {
     public static void main(String[] args) {
         String str = "[{\"OFFLINEnum\":1,\"MTnum\":2,\"allnum\":4}]";
+
+        Map<String, Object> map1 = JSON.parseObject(str, new TypeReference<Map<String, Object>>() {
+        });
+
+
+
         JSONArray jsonArray= JSONArray.parseArray(str);
         System.err.println(jsonArray);
 

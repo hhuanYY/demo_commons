@@ -1,6 +1,8 @@
 package com.utils.字符串相关;
 
+import com.alibaba.fastjson.JSON;
 import com.utils.时间工具.DateTimeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,7 +13,55 @@ import java.util.*;
  * @date: 2021/8/24 11:16
  */
 public class Str {
+
+    public static String strTest() {
+        return "null";
+    }
+
     public static void main(String[] args) {
+
+
+        String s = strTest();
+
+        if (StringUtils.isNotBlank(s)) {
+            System.err.println("Y");
+        } else {
+            System.err.println("N");
+        }
+
+
+
+
+
+
+
+//        int a = 0;
+//        int b = 0;
+//        for (int i = 0; i <= 3; i++) {
+//            --a;
+//            System.err.println(a);
+////            System.err.println("初始值: "+a);
+////            System.err.println("我是第" + i + "位的a++:" + a++);
+////            System.err.println("我是第" + i + "位的++b:" + ++b);
+////            System.err.println("-------------------");
+//        }
+
+
+
+//        String str = "Y";
+//        String str1 = "y";
+//        if (str.equalsIgnoreCase(str1)) {
+//            System.err.println("成功...");
+//        }
+
+//        String str12 = "https://dataeye.test.dossen.com/operate/data111111111";
+//        String[] coms = str12.split("com");
+//        System.err.println(coms[1]);
+//
+//
+//        String st11 = "index_occ";
+//        System.err.println(st11.toUpperCase());
+
 //        String str = "http://s3.dossen.com?xxxxxxxxxxi456456";
 //        int i = str.indexOf("?");
 //        System.err.println(i);
@@ -51,4 +101,5 @@ public class Str {
         System.err.println(last30);
 
     }
+
 }

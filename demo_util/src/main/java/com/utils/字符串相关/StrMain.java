@@ -1,5 +1,7 @@
 package com.utils.字符串相关;
 
+import org.springframework.util.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,14 @@ public class StrMain {
          */
         String format = String.format("HI %s %s %d", "小超", "今年", 18);
         System.err.println(format);
+
+
+        /**
+         * String.startsWith() 方法标识字符串是否以指定的前缀开始
+         */
+        String startStr = "/test";
+        boolean b = startStr.startsWith("/");
+
 
     }
 }

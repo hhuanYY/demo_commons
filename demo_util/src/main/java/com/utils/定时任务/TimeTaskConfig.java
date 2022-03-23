@@ -1,8 +1,10 @@
 package com.utils.定时任务;
 
+import com.utils.常用注解.ConfigurationPropertiesTest;
 import com.utils.时间工具.DateTimeUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -73,12 +75,14 @@ public class TimeTaskConfig {
 //    }
 
 
-    @Scheduled(cron = "0 0/2 * * * ?")
-    public void refreshMemberMobileTrend() throws Exception {
-        System.err.println(DateTimeUtils.getStringFormatDate(new Date()));
-    }
-
-
-
+//    @Scheduled(cron = "0/3 * * * * ?")
+//    public void refreshMemberMobileTrend() throws Exception {
+//        try {
+//            System.err.println(Thread.currentThread().getName() + ": 主线程请求异步执行开始...");
+//            System.err.println(Thread.currentThread().getName() + ": 主线程请求异步执行结束...");
+//        } catch (Exception e) {
+//            throw new Exception("xx");
+//        }
+//    }
 
 }
