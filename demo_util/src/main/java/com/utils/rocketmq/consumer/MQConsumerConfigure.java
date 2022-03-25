@@ -45,7 +45,6 @@ public class MQConsumerConfigure {
 
         // 获取额外的消息属性,来过滤消
 
-
         /**
          * 同一个消费者组可以通过设置消费模式,来控制消费者的模式为集群/广播 (默认是集群模式)
          * 不同的消费者组就是广播模式
@@ -57,8 +56,6 @@ public class MQConsumerConfigure {
         try {
             String[] topicAndTag = topics.split(":");
             defaultMQPushConsumer.subscribe(topicAndTag[0],topicAndTag[1]);
-
-            defaultMQPushConsumer.subscribe(topicAndTag[0], MessageSelector.bySql("age>16"));
 
             defaultMQPushConsumer.start();
             System.err.println("消息者创建成功: topic={" + topicAndTag[0] + "}, tag={" + topicAndTag[1] + "}");

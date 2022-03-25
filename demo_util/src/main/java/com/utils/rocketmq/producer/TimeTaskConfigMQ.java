@@ -69,7 +69,7 @@ public class TimeTaskConfigMQ {
     private DefaultMQProducer defaultMQProducer;
 
 
-    @Scheduled(cron = "0 03 18 * * ?")
+    @Scheduled(cron = "0 12 17 * * ?")
     public void MQTest() throws Exception {
 
         List<Family> list = new ArrayList<>();
@@ -77,60 +77,72 @@ public class TimeTaskConfigMQ {
         list.add(family);
         User user = new User("yyh",100,"beijing",list);
 
-        Message message = new Message("ROCKETMQ_SERVICE_TEST_TOPIC", "tag", JSON.toJSONBytes(user));
+        List<User> users = new ArrayList<>();
+        users.add(user);
 
-        /**
-         *  添加额外的消息属性，设置后消费者能够能够这个属性来过滤消息 (例如：只消费age=18的消息)
-         *     例如: defaultMQPushConsumer.subscribe(topicAndTag[0], MessageSelector.bySql("age > 16"))
-         */
-        message.putUserProperty("age", "18");
-
-        try {
-
-            /**
-             *  1. 该模式默认是同步消息: (即时性较强,需要立马得到发送消息后的回执。例如：短信、通知(转账成功))
-             */
-            SendResult send = defaultMQProducer.send(message);
-
-
-            /**
-             *  2. 异步消息: 除了传一个message,还需要一个回调函数: (即时性较弱，也需要回执，但是回执可以后续缓慢返回)
-             */
-            defaultMQProducer.send(message, new SendCallback() {
-                @Override
-                public void onSuccess(SendResult sendResult) {
-                    // 发送成功的响应
-                }
-
-                @Override
-                public void onException(Throwable e) {
-                    // 发送失败的响应
-                }
-            });
-
-            /**
-             *  3. 单向消息，不需要回执 (不需要回执，例如日志系统)
-             */
-            defaultMQProducer.sendOneway(message);
-
-            /**
-             * 4. 延时消息: 通过设置消息的延时等级来实现 (消息发送时并不直接发送到消息服务器上，而是根据设定的等待时间到达，起到延时到达的缓冲作用)
-             */
-            message.setDelayTimeLevel(3);
+        for (User userInfo : users) {
+            Message message = new Message("ROCKETMQ_SERVICE_TEST_TOPIC", "tag", JSON.toJSONBytes(userInfo));
+            message.setKeys("ROCKETMQ_SERVICE_TEST_TOPIC_"+System.currentTimeMillis());
             defaultMQProducer.send(message);
-
-            /**
-             * 5. 批量消息: 将多个单条消息封装到集合中,集中起来一次性发送 (批量消息需要主要一次性消息大小<4M)
-             */
-            List<Message> messageList = new ArrayList<>();
-            messageList.add(message);
-            defaultMQProducer.send(messageList);
-
-
-            System.err.println("写入消息队列成功: "+message);
-        } catch (Exception e) {
-            System.err.println("写入消息队列失败");
         }
+
+
+
+
+//        Message message = new Message("ROCKETMQ_SERVICE_TEST_TOPIC", "tag", JSON.toJSONBytes(users));
+//
+//        /**
+//         *  添加额外的消息属性，设置后消费者能够能够这个属性来过滤消息 (例如：只消费age=18的消息)
+//         *     例如: defaultMQPushConsumer.subscribe(topicAndTag[0], MessageSelector.bySql("age > 16"))
+//         */
+//        message.putUserProperty("age", "18");
+//
+//        try {
+//
+//            /**
+//             *  1. 该模式默认是同步消息: (即时性较强,需要立马得到发送消息后的回执。例如：短信、通知(转账成功))
+//             */
+//            SendResult send = defaultMQProducer.send(message);
+//
+//
+//            /**
+//             *  2. 异步消息: 除了传一个message,还需要一个回调函数: (即时性较弱，也需要回执，但是回执可以后续缓慢返回)
+//             */
+//            defaultMQProducer.send(message, new SendCallback() {
+//                @Override
+//                public void onSuccess(SendResult sendResult) {
+//                    // 发送成功的响应
+//                }
+//
+//                @Override
+//                public void onException(Throwable e) {
+//                    // 发送失败的响应
+//                }
+//            });
+//
+//            /**
+//             *  3. 单向消息，不需要回执 (不需要回执，例如日志系统)
+//             */
+//            defaultMQProducer.sendOneway(message);
+//
+//            /**
+//             * 4. 延时消息: 通过设置消息的延时等级来实现 (消息发送时并不直接发送到消息服务器上，而是根据设定的等待时间到达，起到延时到达的缓冲作用)
+//             */
+//            message.setDelayTimeLevel(3);
+//            defaultMQProducer.send(message);
+//
+//            /**
+//             * 5. 批量消息: 将多个单条消息封装到集合中,集中起来一次性发送 (批量消息需要主要一次性消息大小<4M)
+//             */
+//            List<Message> messageList = new ArrayList<>();
+//            messageList.add(message);
+//            defaultMQProducer.send(messageList);
+//
+//
+//            System.err.println("写入消息队列成功: "+message);
+//        } catch (Exception e) {
+//            System.err.println("写入消息队列失败");
+//        }
 
     }
 }
