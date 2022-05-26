@@ -86,6 +86,13 @@ public class UsetTest {
          */
 
 
+        /**
+         * 过滤 + 排序
+         * item是自定义字符串(代表列表的具体泛型类型), filter中的条件是填的需要过滤选择的条件
+         */
+        //根据数量排序显示
+        //dataDeptNumVOS = dataDeptNumVOS.stream().filter( item->item.getTempNum()!=0 ).sorted( Comparator.comparing( DataDeptNumVO :: getTempNum,Comparator.reverseOrder() ) ).collect( Collectors.toList() );
+
 
 
 

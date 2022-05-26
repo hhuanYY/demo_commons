@@ -1,12 +1,9 @@
 package com.utils.字符串相关;
 
-import com.alibaba.fastjson.JSON;
 import com.utils.时间工具.DateTimeUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.Date;
 
 /**
  * @author: yuanyinhuan
@@ -20,6 +17,11 @@ public class Str {
 
     public static void main(String[] args) {
 
+        String l1 = "rpT_0808";
+        String l2 = "RPT_0808";
+        if (l1.equalsIgnoreCase( l2 )) {
+            System.err.println("CCCCCCCCCCC");
+        }
 
         String s = strTest();
 

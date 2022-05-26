@@ -87,6 +87,10 @@ public class DateTimeUtils {
     }
 
 
+    /**
+     * 获取服务器时间
+     * @return
+     */
     public static Date getServerDate() {
         Date now = new Date();
         Calendar calendar = Calendar.getInstance();
@@ -244,7 +248,12 @@ public class DateTimeUtils {
     }
 
 
-
+    /**
+     * 获取两个日期之间相隔的月份列表
+     * @param startTime
+     * @param endTime
+     * @return
+     */
     public static List<String> getBetweenTwoTime(String startTime,String endTime) {
         List<String> list = new ArrayList<>();
         Calendar start = Calendar.getInstance();
@@ -270,6 +279,46 @@ public class DateTimeUtils {
         }
 
         return list;
+    }
+
+
+    /**
+     * 获取今天的开始时间
+     * @return 时间
+     */
+    public static Date getStartTime() {
+        Calendar todayStart = Calendar.getInstance();
+        todayStart.set(Calendar.HOUR_OF_DAY, 0);
+        todayStart.set(Calendar.MINUTE, 0);
+        todayStart.set(Calendar.SECOND, 0);
+        todayStart.set(Calendar.MILLISECOND, 0);
+        return todayStart.getTime();
+    }
+
+    /**
+     * 获取今天指定几点时间
+     * @param hour 小时
+     * @param minute 分钟
+     * @return 时间
+     */
+    public static Date getHourTime(Integer hour,Integer minute) {
+        Calendar todayHour = Calendar.getInstance();
+        todayHour.set(Calendar.HOUR_OF_DAY, hour);
+        todayHour.set(Calendar.MINUTE, minute);
+        todayHour.set(Calendar.SECOND, 0);
+        todayHour.set(Calendar.MILLISECOND, 0);
+        return todayHour.getTime();
+    }
+
+
+    public static String test() {
+        Calendar instance = Calendar.getInstance();
+        instance.set( Calendar.DAY_OF_MONTH,1 );
+        instance.set( Calendar.HOUR_OF_DAY,0);
+        instance.set(Calendar.MINUTE, 0);
+        instance.set(Calendar.SECOND, 0);
+        instance.set(Calendar.MILLISECOND, 0);
+        return DateTimeUtils.getStringFormatDate( instance.getTime() );
     }
 
 

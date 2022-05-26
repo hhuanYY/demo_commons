@@ -1,6 +1,7 @@
 package com.utils.字符串相关;
 
-import org.springframework.util.StringUtils;
+import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,5 +49,34 @@ public class StrMain {
         boolean b = startStr.startsWith("/");
 
 
+
+        List<DataSupportParam> listStr = new ArrayList<>();
+        DataSupportParam dataSupportParam1 = new DataSupportParam( "酒店id","hotelid","0020001" );
+        DataSupportParam dataSupportParam2 = new DataSupportParam( "酒店id","hotelid","0020002,0020001" );
+        listStr.add( dataSupportParam1 );
+        listStr.add( dataSupportParam2 );
+
+        for (DataSupportParam dataSupportParam : listStr) {
+            dataSupportParam.setConditionName( method(dataSupportParam.getConditionName()) );
+            dataSupportParam.setConditionField( method(dataSupportParam.getConditionField()) );
+            dataSupportParam.setConditionValue( method(dataSupportParam.getConditionValue()) );
+        }
+        System.out.println( JSON.toJSONString( listStr ) );
+
+    }
+
+    /**
+     * 给值单独拼接 ''
+     * @param value
+     * @return
+     */
+    public static String method(String value) {
+        List<String> listStr = new ArrayList<>();
+        String[] split = value.split( "," );
+        for (String str : split) {
+            listStr.add( "'" + str + "'" );
+        }
+        String join = StringUtils.join( listStr,"," );
+        return join;
     }
 }
