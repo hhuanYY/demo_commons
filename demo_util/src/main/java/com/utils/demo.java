@@ -3,7 +3,11 @@ package com.utils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @ProjectName：demo_commons
@@ -13,6 +17,106 @@ import java.net.URLEncoder;
  */
 public class demo {
     public static void main(String[] args) throws UnsupportedEncodingException {
+
+        Map<String,Object> params = new HashMap<>();
+        params.put( "$organizationId$","tableB.Branch_Region_id" );
+        params.put( "$orderValue$","" );
+        params.put( "$conditionValue$","tableA.BizDay>=20220201 AND  tableA.BizDay<=20220230" );
+        params.put( "$extraCondition$","tableA.BizDay>=20220201 AND  tableA.BizDay<=20220230" );
+        params.put( "$organizationName$","tableB.Branch_Region_Name" );
+        params.put( "$conditionGroup$","tableB.Branch_Region_id" );
+        params.put( "$columnValue$","CASE WHEN SUM(tableA.Leasable_Room_Cnt)=0 THEN 0 ELSE SUM(tableA.Sumup_Occ2)/SUM(tableA.Leasable_Room_Cnt) END AS indexValue" );
+        params.put( "$extraColumn$","CASE WHEN SUM(tableA.Leasable_Room_Cnt)=0 THEN 0 ELSE SUM(tableA.Sumup_Occ2)/SUM(tableA.Leasable_Room_Cnt) END AS extraIndexValue" );
+
+
+        String sql = "SELECT name,indexValue,extraIndexValue FROM (\n" +
+                "      SELECT $organizationId$ AS id ,$organizationName$ AS name\n" +
+                "            ,$columnValue$\n" +
+                "      FROM zc_flow.ads_hotel_operation_day tableA\n" +
+                "      LEFT JOIN zc_flow.dim_hotel_curr tableB ON tableA.hotel_id=tableB.hotelid \n" +
+                "      WHERE $conditionValue$ \n" +
+                "      GROUP BY $conditionGroup$\n" +
+                ")A\n" +
+                "LEFT JOIN (\n" +
+                "      SELECT $organizationId$ AS id\n" +
+                "            , $extraColumn$\n" +
+                "      FROM zc_flow.ads_hotel_operation_day tableA\n" +
+                "      LEFT JOIN zc_flow.dim_hotel_curr tableB ON tableA.hotel_id=tableB.hotelid \n" +
+                "      WHERE $extraCondition$\n" +
+                "      GROUP BY $conditionGroup$\n" +
+                ")B ON A.id = B.id ORDER BY indexValue DESC";
+
+        String regular = "(\\$)(.*?)(\\$)";
+        Pattern pattern = Pattern.compile(regular);
+        Matcher matcher = pattern.matcher(sql);
+        //创建一个list保存通过正则取出的字符
+        List<String> list = new ArrayList<>();
+        while(matcher.find()) {
+            list.add(matcher.group(2));
+        }
+
+        System.out.println( list );
+
+        for (String replaceChar: list) {
+            String replace = "$"+replaceChar+"$";
+            Object filter = params.get(replace);
+            String condition = String.valueOf( filter );
+            if (StringUtils.isEmpty( condition ) || "null".equalsIgnoreCase( condition )){
+                break;
+            }
+
+            //替换
+            sql = sql.replace( replace,condition );
+            //将参数MAP中的filter去除
+            params.remove(replace);
+        }
+
+        System.out.println( sql );
+
+
+        Random random = new Random();
+        System.out.println(random.nextFloat());
+
+
+
+
+        Object o1 = "0.65218";
+        Object o2 = "0.68370";
+
+        String s1 = String.valueOf( o1 );
+        String s2 = String.valueOf( o2 );
+
+        BigDecimal b1 = new BigDecimal( s1);
+        BigDecimal b2 = new BigDecimal( s2 );
+
+        System.out.println( b1.add( b2 ) );
+
+        System.out.println( b1.subtract( b2 ) );
+
+        System.out.println( b1.multiply( b2 ) );
+
+        System.out.println( b1.divide( b2 ,BigDecimal.ROUND_HALF_UP));
+
+        System.out.println(b2.subtract( b1 ).divide( b1,BigDecimal.ROUND_HALF_UP ));
+
+
+
+
+        String url11 = "http:nkns.dossen.com:8450/views/35/sheet0?iid=1&param=";
+
+        int i = url11.indexOf( "8450" );
+        int i1 = url11.indexOf( "?" );
+
+        if (url11.indexOf( "8450" ) != -1 && url11.indexOf( "?" ) != -1) {
+            System.out.println( "xdsfsf" );
+        }
+
+        System.out.println( i );
+        System.out.println( i1 );
+
+        String[] split = url11.split( "8450" );
+        String[] split1 = split[1].split( "\\?" );
+        System.out.println( split1[0] );
 
 //        // 替换 /=bi111 ?=bi222 &=bi333
 //        String url = "/Analyzer/dashboard/designer.aspx?action=open&tabindex=2&reportid=-1922565324&folderid=-1725226504&tb=1&token=WUFBQUFnQUFBQVFDSnY1OSs3eTlWYzlTNm1Jak9HdkszdFVkSjIxdGZHWXhHRGhhMkhhMkNFZHBqR01WTlUyTw&cmsUserName=wangchenchen2(%E7%8E%8B%E6%99%A8%E6%99%A8)?userid=report&password=bi123&cmsUserName=wangchenchen2(%E7%8E%8B%E6%99%A8%E6%99%A8)&userid=report&password=bi123&cmsUserName=wangchenchen2(%E7%8E%8B%E6%99%A8%E6%99%A8)" ;
