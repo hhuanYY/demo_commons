@@ -20,5 +20,12 @@ public class MainDemo {
          */
         int ordinal = EnumDemo.ONE.ordinal();
 
+
+        /**
+         * 多个参数的构造函数的枚举
+         */
+        Integer code = EnumDemo.SUCCESS.getCode();
+        String message = EnumDemo.SUCCESS.getMessage();
+
     }
 }
