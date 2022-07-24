@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 public class demo {
     public static void main(String[] args) throws UnsupportedEncodingException {
 
-        Map<String,Object> params = new HashMap<>();
+        Map<String,Object> params = new HashMap<String,Object>();
         params.put( "$organizationId$","tableB.Branch_Region_id" );
         params.put( "$orderValue$","" );
         params.put( "$conditionValue$","tableA.BizDay>=20220201 AND  tableA.BizDay<=20220230" );
