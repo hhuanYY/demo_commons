@@ -21,9 +21,8 @@ public class RecursionDemo {
 
     /**
      * 递归求累加
-     *
-     * @param num
-     * @return
+     * @param num 第n项
+     * @return 累计值
      */
     private static int additionOneHundredByRecursion(int num) {
 
@@ -37,7 +36,7 @@ public class RecursionDemo {
     /**
      * 斐波那契数列
      * @param num 第几项
-     * @return
+     * @return 第n项返回值
      */
     private static int fibonacciByRecursion(int num) {
 

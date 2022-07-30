@@ -36,25 +36,48 @@ public class TreeByRecursionDemo {
 
     }
 
-    /**
-     * 递归方法实现寻找组织架构层级
-     * @param dataResult 层级对象
-     * @param list 组织架构完整列表
-     */
-    public static void treeListByRecursion(DataResult dataResult, List<JSONObject> list) {
-        OrganizationTreeEnum organizationEnum = OrganizationTreeEnum.valueOf(dataResult.getOrganizationType());
-        if (OrganizationTreeEnum.SHOP.equals(organizationEnum)) {
+
+    private static void treeListByRecursion(DataResult dataResult, List<JSONObject> list) {
+        OrganizationTreeEnum organizationTreeEnum = OrganizationTreeEnum.valueOf(dataResult.getOrganizationType());
+        if (OrganizationTreeEnum.SHOP.equals(organizationTreeEnum)) {
             return;
         }
-        List<DataResult> next = organizationEnum.next(dataResult.getOrganizationId(), list);
-        dataResult.setChildrenList(next);
+
+        List<DataResult> next = organizationTreeEnum.next(dataResult.getOrganizationId(), list);
         if (CollectionUtils.isNotEmpty(next)) {
+            dataResult.setChildrenList(next);
             for (DataResult node : next) {
                 treeListByRecursion(node, list);
             }
         }
 
+
     }
+
+
+
+
+
+
+    /**
+     * 递归方法实现寻找组织架构层级
+     * @param dataResult 层级对象
+     * @param list 组织架构完整列表
+     */
+//    public static void treeListByRecursion(DataResult dataResult, List<JSONObject> list) {
+//        OrganizationTreeEnum organizationEnum = OrganizationTreeEnum.valueOf(dataResult.getOrganizationType());
+//        if (OrganizationTreeEnum.SHOP.equals(organizationEnum)) {
+//            return;
+//        }
+//        List<DataResult> next = organizationEnum.next(dataResult.getOrganizationId(), list);
+//        dataResult.setChildrenList(next);
+//        if (CollectionUtils.isNotEmpty(next)) {
+//            for (DataResult node : next) {
+//                treeListByRecursion(node, list);
+//            }
+//        }
+//
+//    }
 
 }
 

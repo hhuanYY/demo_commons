@@ -1,6 +1,7 @@
 package com.utils.开发常用.递归.entity;
 
 import com.alibaba.fastjson.JSONObject;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,6 +10,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public enum OrganizationTreeEnum {
+
     THEATER("theaterId", "branchId", "branchName", "BRANCH"),
     BRANCH("branchId", "regionId", "regionName", "REGION"),
     REGION("regionId", "hotelId", "hotelName", "SHOP"),
@@ -26,6 +28,7 @@ public enum OrganizationTreeEnum {
     private final String nextField;
     private final String nextName;
     private final String nextType;
+
 
     public List<DataResult> next(String id,List<JSONObject> organizationList){
         List<JSONObject> collect = organizationList.stream().filter(org -> id.equals(org.getString(this.field))).collect(Collectors.toList());
