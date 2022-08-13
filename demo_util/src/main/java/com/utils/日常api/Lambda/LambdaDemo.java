@@ -1,7 +1,9 @@
 package com.utils.日常api.Lambda;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: yuanyinhuan
@@ -29,7 +31,10 @@ public class LambdaDemo {
         list.forEach(zz -> System.err.print(zz));
 
 
-
+        Map<String, List<String>> map = new HashMap<>(16);
+        map.forEach((k, v) -> {
+            
+        });
 
 
     }
@@ -38,3 +43,7 @@ public class LambdaDemo {
         return x + y;
     }
 }
+
+
+
+

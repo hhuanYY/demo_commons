@@ -3,12 +3,9 @@ package com.utils.Java进阶基础.反射;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * 反射：
- * 1. Java独有的特性, 支持对.class字节码文件进行剖析
- * 2. 具体能够解析出: .class字节码文件包含的(属性、方法(构造方法、公有/私有方法、注解)
- */
 public class DemoReflect {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         // 1. 检查类上是否有注解
@@ -34,6 +31,15 @@ public class DemoReflect {
         /* 3.调用invoke()方法来处理逻辑,传入改方法属于的对象引用, 以及该方法需要传入的参数值*/
         Object yyh = md5.invoke(ref, "YYH", "123");
         System.out.println(yyh);
+
+
+        // 通过反射执行List集合的add()方法
+        List<Integer> list = new ArrayList<>();
+        Class<?> listClass = list.getClass();
+        Method add = listClass.getDeclaredMethod("add", Object.class);
+        Object invoke = add.invoke(list, "8000");
+        System.out.println(invoke);
+        System.out.println(list);
 
     }
 }

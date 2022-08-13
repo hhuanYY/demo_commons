@@ -1,5 +1,7 @@
 package com.utils.枚举;
 
+import com.utils.开发常用.枚举.EnumDemo;
+
 /**
  * @author: yuanyinhuan
  * @date: 2021/8/17 11:23
@@ -19,13 +21,6 @@ public class MainDemo {
          * int ordinal()
          */
         int ordinal = EnumDemo.ONE.ordinal();
-
-
-        /**
-         * 多个参数的构造函数的枚举
-         */
-        Integer code = EnumDemo.SUCCESS.getCode();
-        String message = EnumDemo.SUCCESS.getMessage();
 
     }
 }
