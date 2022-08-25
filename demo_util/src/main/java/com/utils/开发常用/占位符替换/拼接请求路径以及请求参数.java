@@ -1,6 +1,6 @@
 package com.utils.开发常用.占位符替换;
 
-import com.utils.utils.ParamUtil;
+import com.utils.Bean.utils.ParamUtil;
 
 import java.text.MessageFormat;
 

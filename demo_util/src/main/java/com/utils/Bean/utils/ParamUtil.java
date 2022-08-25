@@ -1,4 +1,4 @@
-package com.utils.utils;
+package com.utils.Bean.utils;
 
 import org.apache.logging.log4j.message.ParameterizedMessage;
 

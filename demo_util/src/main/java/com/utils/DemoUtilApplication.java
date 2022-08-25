@@ -11,6 +11,7 @@ public class DemoUtilApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(DemoUtilApplication.class, args);
+        System.out.println("开启启动...");
 
 //        TestService testService = run.getBean(TestService.class);
 //

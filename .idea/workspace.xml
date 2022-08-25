@@ -4,22 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="389afc00-cd01-4f14-96db-91d1b503a268" name="Default Changelist" comment="反射相关">
-      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Bean/DemoBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Bean/DemoBeanConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Java进阶基础/反射/reflect.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/开发常用/泛型/GenericClassDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/开发常用/泛型/GenericInterfaceDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/开发常用/泛型/GenericMethodDemo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/开发常用/泛型/GenericPojo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/开发常用/泛型/generic.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo_util/src/test/java/com/utils/测试/DemoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Java进阶基础/DemoAnnotation.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Java进阶基础/DemoAnnotation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Java进阶基础/反射/DemoReflect.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Java进阶基础/反射/DemoReflect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/开发常用/枚举/MainDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/开发常用/枚举/MainDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/日常api/Lambda/LambdaDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/日常api/Lambda/LambdaDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/枚举/EnumDemo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/阿里开发规范/demo02_异常日志.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/阿里开发规范/demo02_异常日志.java" afterDir="false" />
+    <list default="true" id="389afc00-cd01-4f14-96db-91d1b503a268" name="Default Changelist" comment="日常积累">
+      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Bean/BeanConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Bean/BeanDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/LocalDateDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/api/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Bean/DemoBean.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Bean/DemoBeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Bean/DemoBeanConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/DemoUtilApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/DemoUtilApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/utils/MD5Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Bean/utils/MD5Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/utils/ParamUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/Bean/utils/ParamUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/开发常用/占位符替换/拼接请求路径以及请求参数.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/开发常用/占位符替换/拼接请求路径以及请求参数.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/日常api/Lambda/Lambda分组排序/UsetTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/java/com/utils/日常api/Lambda/Lambda分组排序/UsetTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/main/resources/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo_util/src/test/java/com/utils/测试/DemoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo_util/src/test/java/com/utils/测试/DemoTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$PROJECT_DIR$/../../Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/Integer.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$PROJECT_DIR$/../../Program Files/Java/jdk1.8.0_211/src.zip!/java/sql/Statement.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$PROJECT_DIR$/../../Program Files/Java/jdk1.8.0_211/src.zip!/java/time/temporal/Temporal.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -80,9 +84,16 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;15&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;15&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;8c89d81cc0aa70a2d4f1d6131442102b&quot;
   }
 }</component>
@@ -104,7 +115,7 @@
       <recent name="com.rabbitmq.发布订阅模式" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DemoReflect">
+  <component name="RunManager" selected="Application.MainTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -114,6 +125,19 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BeanMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.utils.Bean.BeanMain" />
+      <module name="demo_util" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utils.Bean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,38 +155,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RecursionDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.utils.开发常用.递归.RecursionDemo" />
+    <configuration name="MainTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.utils.MainTest" />
       <module name="demo_util" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.utils.开发常用.递归.entity.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TreeByRecursionDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.utils.开发常用.递归.TreeByRecursionDemo" />
-      <module name="demo_util" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utils.开发常用.递归.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="demo01_编程规约" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.utils.阿里开发规范.demo01_编程规约" />
-      <module name="demo_util" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.utils.阿里开发规范.*" />
+          <option name="PATTERN" value="com.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -183,6 +181,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DemoTest.strSortDemo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo_util" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.utils.测试.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.utils.测试" />
+      <option name="MAIN_CLASS_NAME" value="com.utils.测试.DemoTest" />
+      <option name="METHOD_NAME" value="strSortDemo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DemoRabbitmqApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="demo_rabbitmq" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.rabbitmq.DemoRabbitmqApplication" />
@@ -199,11 +213,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainTest" />
+        <item itemvalue="JUnit.DemoTest.strSortDemo" />
+        <item itemvalue="Application.BeanMain" />
         <item itemvalue="Application.DemoReflect" />
         <item itemvalue="Application.test" />
-        <item itemvalue="Application.demo01_编程规约" />
-        <item itemvalue="Application.TreeByRecursionDemo" />
-        <item itemvalue="Application.RecursionDemo" />
       </list>
     </recent_temporary>
   </component>
@@ -235,6 +249,11 @@
       <workItem from="1659854818774" duration="782000" />
       <workItem from="1659855604449" duration="10833000" />
       <workItem from="1660358870120" duration="1084000" />
+      <workItem from="1660456266634" duration="1505000" />
+      <workItem from="1660662402790" duration="3995000" />
+      <workItem from="1661072179688" duration="4383000" />
+      <workItem from="1661441556100" duration="188000" />
+      <workItem from="1661441782351" duration="442000" />
     </task>
     <task id="LOCAL-00001" summary="RabbitMQ测试用例">
       <created>1629023191299</created>
@@ -324,6 +343,11 @@
             <State />
           </value>
         </entry>
+        <entry key="c2b06ee5-723e-4457-b02c-a5c17aafe266">
+          <value>
+            <State />
+          </value>
+        </entry>
       </map>
     </option>
     <option name="OPEN_GENERIC_TABS">
@@ -338,7 +362,8 @@
     <MESSAGE value="递归" />
     <MESSAGE value="JDBC相关" />
     <MESSAGE value="反射相关" />
-    <option name="LAST_COMMIT_MESSAGE" value="反射相关" />
+    <MESSAGE value="日常积累" />
+    <option name="LAST_COMMIT_MESSAGE" value="日常积累" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

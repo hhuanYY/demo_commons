@@ -1,4 +1,4 @@
-package com.utils.utils;
+package com.utils.Bean.utils;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

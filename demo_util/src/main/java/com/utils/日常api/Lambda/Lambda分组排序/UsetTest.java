@@ -1,10 +1,7 @@
 package com.utils.日常api.Lambda.Lambda分组排序;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -15,7 +12,13 @@ import java.util.stream.Collectors;
  * @date: 2021/6/15 17:07
  */
 public class UsetTest {
+
+    public static final int BOO = 10;
+
     public static void main(String[] args) {
+
+        System.out.println("BOO = " + BOO);
+
         //存放apple对象集合
         List<Apple> appleList = new ArrayList<>();
         Apple apple1 =  new Apple(1,"柏曼",new BigDecimal("3.25"),2015);
@@ -27,7 +30,6 @@ public class UsetTest {
         appleList.add(apple12);
         appleList.add(apple2);
         appleList.add(apple3);
-
 
         /**
          * 抽出Apple列表的的Id字段
