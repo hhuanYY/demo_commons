@@ -23,7 +23,7 @@ public final class LocalDateDemo {
     public static LocalDate date2LocalDate(Date date) {
         if(null == date) {
             return null;
-        }6
+        }
         return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     }
 

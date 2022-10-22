@@ -1,6 +1,7 @@
 package com.utils.日常api.BigDecimal类型;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * @author: yuanyinhuan
@@ -36,6 +37,16 @@ public class BigDecimalTest {
         BigDecimal b1 = BigDecimal.ONE;
         BigDecimal b2 = BigDecimal.ZERO;
         int i = b1.compareTo(b2);
-
     }
+
+
+    /**
+     * 字符串转BigDecimal进行处理后,再转成字符串
+     * @param num
+     * @return
+     */
+    public String handleBigDecimalToStr(String num) {
+        return new BigDecimal(num).setScale(2, RoundingMode.HALF_UP).toPlainString();
+    }
+
 }
