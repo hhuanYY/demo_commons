@@ -1,12 +1,13 @@
 package com.utils.api.controller;
 
-import com.utils.Bean.BeanDemo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.utils.api.FieldDemo;
 import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 
 /**
  * @ClassName TestController
@@ -18,12 +19,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class TestController {
 
-    @Autowired
-    private BeanDemo beanDemo;
-
     @RequestMapping(value = "/api/test",method = RequestMethod.GET)
     @ResponseBody
     public HttpEntity<Object> getTest(){
-        return new HttpEntity<>("OK");
+
+        FieldDemo fieldDemo = new FieldDemo();
+        fieldDemo.setUSER_NAME("yyh");
+        fieldDemo.setPASSWORD("123");
+//        fieldDemo.setAGe(24);
+        fieldDemo.setCreateTIME(new Date());
+
+        return new HttpEntity<>(fieldDemo);
     }
 }
