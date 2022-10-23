@@ -2,12 +2,46 @@ package com.utils.日常api.BigDecimal类型;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Objects;
 
 /**
  * @author: yuanyinhuan
  * @date: 2021/12/2 11:10
  */
 public class BigDecimalTest {
+
+    /**
+     * 去除尾部所有的0，并返回一个字符串类型的num
+     * @param num
+     * @return
+     */
+    public String decimalToStr(BigDecimal num) {
+        return num.stripTrailingZeros().toPlainString();
+    }
+
+    /**
+     * 处理小数(保留N位小数点)
+     * @param num 目标数
+     * @return 结果数
+     */
+    public String handleNum(String num) {
+        return new BigDecimal(num).setScale(2, RoundingMode.HALF_UP).toPlainString();
+    }
+
+    /**
+     * a / b
+     * @param a 除数
+     * @param b 被除数
+     * @return 结果
+     */
+    public BigDecimal divideDecimal(BigDecimal a, BigDecimal b) {
+        if (Objects.isNull(a) || Objects.isNull(b)) {
+            return BigDecimal.ZERO;
+        }
+        return BigDecimal.ZERO.compareTo(b) == 0 ? BigDecimal.ZERO : a.divide(b, 2, RoundingMode.HALF_UP);
+    }
+
+
     public static void main(String[] args) {
 
         /**BigDecimal类型相互除法*/

@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.URLEncoder;
+import java.text.MessageFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,7 +17,16 @@ import java.util.regex.Pattern;
  * @CreateTime：2022/5/10
  */
 public class demo {
+
+
     public static void main(String[] args) throws UnsupportedEncodingException {
+
+        String format = MessageFormat.format("{0} love {1}", "我", "你");
+        System.out.println(format);
+
+        String format1 = MessageFormat.format("{0} love '{1}'", "我", "你");
+        System.out.println(format1);
+
 
         Map<String,Object> params = new HashMap<String,Object>();
         params.put( "$organizationId$","tableB.Branch_Region_id" );
