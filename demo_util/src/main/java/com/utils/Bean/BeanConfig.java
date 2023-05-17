@@ -1,7 +1,6 @@
 package com.utils.Bean;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  * @ClassName BeanConfig
@@ -11,10 +10,11 @@ import org.springframework.context.ApplicationContext;
  * @Version 1.0
  */
 public class BeanConfig {
-    @Autowired
-    private ApplicationContext ctx;
+    public static void main(String[] args) {
 
-    public <T> T getBeanByClass(Class<T> t) {
-        return ctx.getBean(t);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DemoBeanConfig.class);
+
+        System.out.println(context.getBean("beanDemo"));
+
     }
 }

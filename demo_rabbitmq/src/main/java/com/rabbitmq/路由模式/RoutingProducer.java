@@ -11,7 +11,7 @@ public class RoutingProducer {
     public static void main(String[] args) throws IOException, TimeoutException {
         Channel connRabbitMQ = ConnRabbitMQUtils.getConnRabbitMQ();
         // 生产者创建交换机
-        connRabbitMQ.exchangeDeclare("routingModel", "direct");
+        connRabbitMQ.exchangeDeclare("routingModel", "direct",Boolean.TRUE);
 
         while (true) {
             System.err.println("请输入发送消息: ");

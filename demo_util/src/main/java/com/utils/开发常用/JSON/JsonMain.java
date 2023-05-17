@@ -4,7 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +17,16 @@ import java.util.Map;
  */
 public class JsonMain {
     public static void main(String[] args) {
+
+        String tr = "[http://10.0.31.7:9000/observatory/Dossen202210HuaDongReport.png,http://10.0.31.7:9000/observatory/Dossen202210HuaDongReport.png,http://10.0.31.7:9000/observatory/Dossen202210HuaDongReport.png]";
+        String strip = StringUtils.strip(tr,"][");
+        System.out.println(strip);
+
+
+        List<String> strings = Arrays.asList(tr.split(","));
+        System.out.println(strings);
+
+
         String str = "[{\"OFFLINEnum\":1,\"MTnum\":2,\"allnum\":4}]";
 
         Map<String, Object> map1 = JSON.parseObject(str, new TypeReference<Map<String, Object>>() {

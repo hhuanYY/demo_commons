@@ -3,7 +3,6 @@ package com.rabbitmq.路由模式;
 import com.rabbitmq.client.CancelCallback;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
-import com.rabbitmq.client.Delivery;
 import com.rabbitmq.utils.ConnRabbitMQUtils;
 
 import java.io.IOException;
@@ -29,7 +28,6 @@ public class RoutingConsumer01 {
              */
             connRabbitMQ.queueBind(queueName, "routingModel", routingKey);
         }
-
         DeliverCallback deliverCallback = (s, delivery) -> {
             String msg = new String(delivery.getBody());
             String routingKey = delivery.getEnvelope().getRoutingKey();

@@ -1,7 +1,9 @@
 package com.utils.日常api.Lambda.Lambda分组排序;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -21,26 +23,55 @@ public class UsetTest {
 
         //存放apple对象集合
         List<Apple> appleList = new ArrayList<>();
-        Apple apple1 =  new Apple(1,"柏曼",new BigDecimal("3.25"),2015);
-        Apple apple12 = new Apple(1,"城市便捷",new BigDecimal("1.35"),2015);
-        Apple apple2 =  new Apple(2,"如家",new BigDecimal("2.89"),2016);
-        Apple apple3 =  new Apple(3,"维也纳",new BigDecimal("9.99"),2017);
+        Apple apple1 =  new Apple(1,"abc ddd",new BigDecimal("3.25"),2015);
+        Apple apple12 = new Apple(2,"eef dda",new BigDecimal("1.35"),2015);
+        Apple apple2 =  new Apple(3,"ddf aef",new BigDecimal("2.89"),2016);
+        Apple apple3 =  new Apple(4,"acd erd",new BigDecimal("9.99"),2017);
 
         appleList.add(apple1);
         appleList.add(apple12);
         appleList.add(apple2);
         appleList.add(apple3);
 
-        /**
+
+        List<String> list = Arrays.asList("hello world,yuan is who");
+        list.stream()
+                .flatMap(str -> {
+                    return Arrays.stream(str.split(" "));
+                })
+                .collect(Collectors.toList());
+
+
+
+/*
+        Map<Integer, List<String>> collect3 = appleList.stream().collect(Collectors.toMap(Apple::getId
+                , a -> {
+                    List<String> d = new ArrayList<>();
+                    d.add(a.getName());
+                    return d;
+                }
+                , (v1, v2) -> {
+                    v1.addAll(v2);
+                    return v1;
+                }));
+
+        System.out.println(JSON.toJSONString(collect3));
+
+
+        */
+/**
          * 抽出Apple列表的的Id字段
-         */
+         *//*
+
         List<Integer> collect = appleList.stream().map(Apple::getId).collect(Collectors.toList());
         System.err.println(collect);
 
-        /** 排序:
+        */
+/** 排序:
          * 1. .collect(Collectors.toList()); 表示返回值为当前的列表
          * 2. 添加了Comparator.reverseOrder()则表示降序
-         */
+         *//*
+
         // 按照getMoney字段升序
         List<Apple> collect1 = appleList.stream().sorted(Comparator.comparing(Apple::getMoney)).collect(Collectors.toList());
         // 按照getMoney字段降序 ( 添加了Comparator.reverseOrder()则表示降序 )
@@ -51,6 +82,7 @@ public class UsetTest {
         Collections.sort(appleList,Comparator.comparing(Apple::getMoney,Comparator.reverseOrder()));
         System.err.println(appleList);
 
+*/
 
         /** 根据某个字段分组:
          *

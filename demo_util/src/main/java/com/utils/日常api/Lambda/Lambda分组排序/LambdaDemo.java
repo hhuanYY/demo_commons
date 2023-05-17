@@ -1,4 +1,4 @@
-package com.utils.日常api.Lambda;
+package com.utils.日常api.Lambda.Lambda分组排序;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -32,6 +32,7 @@ public class LambdaDemo {
 
 
         Map<String, List<String>> map = new HashMap<>(16);
+
         map.forEach((k, v) -> {
             
         });
