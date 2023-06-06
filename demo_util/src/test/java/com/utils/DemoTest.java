@@ -1,11 +1,16 @@
-package com.utils.测试;
+package com.utils;
 
 import cn.hutool.extra.spring.SpringUtil;
 import com.utils.Bean.BeanDemo;
 import com.utils.Bean.DemoService;
 import com.utils.多线程.ThreadDemo;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -19,7 +24,8 @@ import java.util.stream.Collectors;
  * @Date 2022/8/7 17:29
  * @Version 1.0
  */
-@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = DemoUtilApplication.class)
 public class DemoTest {
 
     private void fieldDemo(List<Integer> list) {
@@ -309,6 +315,20 @@ public class DemoTest {
         Map<String, DemoService> hashMap= SpringUtil.getBeansOfType(DemoService.class);
         System.out.println(hashMap);
     }
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @Test
+    public void demo001() {
+        String body = restTemplate.getForEntity("http://10.0.31.16:8099/modelAndView", String.class).getBody();
+        System.out.println(body);
+
+        ModelAndView body1 = restTemplate.getForEntity("http://10.0.31.16:8099/modelAndView", ModelAndView.class).getBody();
+        System.out.println(body);
+
+    }
+
 
 
 }

@@ -24,18 +24,18 @@ public class Demo_OkHttp {
                 .readTimeout(1, TimeUnit.SECONDS)   //设置读取超时时间
                 .build();
 
-//        String url = "http://api01.idataapi.cn:8000/hotel/dossendata?id=0010002&appCode=ctrip&dataType=ctripbussiness&startDate=2022-09-22&endDate=2022-09-22&apikey=GYRtjWTrZhp217biFqJOuTz1Q02dBDhuax8Pubp72VygyZGyPr09kT11ObVLYs43";
-//
-//        // okhttp--GET请求
-//        Request requestGet = new Request.Builder()
-//                .url(url)
-//                .get()
-//                .build();
-//        final Call callGet = okHttpClient.newCall(requestGet);
-//        Response executeGet = callGet.execute();
-//        String result = Objects.requireNonNull(executeGet.body()).string();
-//        String data = JSON.parseObject(result).getString("data");
-//        System.out.println(data);
+        String url = "http://api01.idataapi.cn:8000/hotel/dossendata?id=0010002&appCode=ctrip&dataType=ctripbussiness&startDate=2022-09-22&endDate=2022-09-22&apikey=GYRtjWTrZhp217biFqJOuTz1Q02dBDhuax8Pubp72VygyZGyPr09kT11ObVLYs43";
+
+        // okhttp--GET请求
+        Request requestGet = new Request.Builder()
+                .url(url)
+                .get()
+                .build();
+        final Call callGet = okHttpClient.newCall(requestGet);
+        Response executeGet = callGet.execute();
+        String result = Objects.requireNonNull(executeGet.body()).string();
+        String data = JSON.parseObject(result).getString("data");
+        System.out.println(data);
 
 
         // okhttp--POST请求

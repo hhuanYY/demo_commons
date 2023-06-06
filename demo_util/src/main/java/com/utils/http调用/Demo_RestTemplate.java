@@ -2,9 +2,7 @@ package com.utils.http调用;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -47,5 +45,23 @@ public class Demo_RestTemplate {
 
         ResponseEntity<String> exchange = restTemplate.exchange(url, HttpMethod.POST, req, new ParameterizedTypeReference<String>() {});
         System.out.println(exchange.getBody());
+    }
+
+    /**
+     * 调用接口入参是@RequestParam的post请求
+     */
+    private void requestParam(){
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        MultiValueMap<String, String> request = new LinkedMultiValueMap<>();
+        request.add("mac","pool");
+
+        ResponseEntity<String> exchange = new RestTemplate().exchange(
+                "http://localhost:9099/get-order",
+                HttpMethod.POST,
+                new HttpEntity<>(request, httpHeaders),
+                new ParameterizedTypeReference<String>() {
+                }
+        );
     }
 }

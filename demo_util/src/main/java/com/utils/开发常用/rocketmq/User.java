@@ -1,6 +1,8 @@
 package com.utils.开发常用.rocketmq;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -9,6 +11,8 @@ import java.util.List;
  * @date: 2022/3/23 17:14
  */
 @Data
+@NoArgsConstructor
+@Builder
 public class User {
     private String username;
     private Integer age;

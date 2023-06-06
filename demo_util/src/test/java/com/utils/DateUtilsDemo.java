@@ -1,13 +1,15 @@
-package com.utils.测试;
+package com.utils;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.lang.reflect.Field;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * <p>
@@ -19,6 +21,46 @@ import java.util.Date;
  */
 @SpringBootTest
 public class DateUtilsDemo {
+
+    @Test
+    public void demo11() throws IllegalAccessException, NoSuchMethodException {
+        UserDemo user = new UserDemo();
+        user.setUsername("A20230523");
+        user.setAddress("Address");
+        user.setAge(1);
+
+        Class<? extends UserDemo> userClass = user.getClass();
+
+        Field[] fields = userClass.getDeclaredFields();
+        for (Field field : fields) {
+            field.setAccessible(true);
+            Object originalValue = field.get(user);
+
+            if (Objects.nonNull(originalValue)) {
+                if (originalValue instanceof String) {
+                    field.set(user,((String) originalValue).replaceAll("A","#"));
+                } else if (originalValue instanceof Integer) {
+                    field.set(user,1000);
+                }
+            }
+        }
+
+        System.out.println(user);
+
+
+        UserDemo userDemo = new UserDemo();
+
+
+
+
+
+
+
+
+
+
+
+    }
 
     @Test
     public void getLastWeekDate() {
@@ -39,7 +81,7 @@ public class DateUtilsDemo {
         System.out.println(months.with(TemporalAdjusters.firstDayOfMonth()));
         System.out.println(months.with(TemporalAdjusters.lastDayOfMonth()));
 
-
     }
+
 
 }
