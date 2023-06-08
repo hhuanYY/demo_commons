@@ -29,23 +29,25 @@ public class CustomizeService {
 //    }
 
 
+    @Async
     public String asyncDemo01() {
         try {
-            System.out.println("asyncDemo01:" + Thread.currentThread().getName());
-            return "asyncDemo01_业务执行完毕";
-        } catch (Exception e){
-//            e.printStackTrace();
-            log.error("异常 了");
-//            throw new RuntimeException("异常....");
-        }
-        return "";
+            System.out.println("asyncDemo01_开始执行:" + Thread.currentThread().getName());
+            int i = 1/0;
 
+        } catch (Exception e){
+            e.printStackTrace();
+//            log.error("异常了",e);
+//            throw new RuntimeException("异常....",e);
+        }
+
+        return "asyncDemo01_业务执行完毕";
     }
 
-    @Async
+//    @Async
     public void asyncDemo02() {
         try {
-            int i = 1/0;
+//            int i = 1/0;
             System.out.println("asyncDemo02_开始执行:"+Thread.currentThread().getName());
             Thread.sleep(3000);
             System.out.println("asyncDemo02_执行完毕:" + Thread.currentThread().getName());

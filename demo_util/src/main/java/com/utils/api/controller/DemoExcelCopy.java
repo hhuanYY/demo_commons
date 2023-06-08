@@ -4,6 +4,7 @@ import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 /**
  * <p>
@@ -16,9 +17,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DemoExcel {
+@Component
+public class DemoExcelCopy {
     @ExcelProperty(value = "姓名", order = 1)
     private String username;
     @ExcelProperty(value = "年龄", order = 2)
     private Integer age;
+
+    private String address;
+
 }
